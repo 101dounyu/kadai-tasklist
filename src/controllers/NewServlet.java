@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import models.Task;
 
 /**
+ * 新規タスク作成のためのサーブレット
  * Servlet implementation class NewServlet
  */
 @WebServlet("/new")
@@ -33,9 +34,9 @@ public class NewServlet extends HttpServlet {
         request.setAttribute("_token", request.getSession().getId());
 
         // おまじないとしてのインスタンスを生成
-        request.setAttribute("message", new Task());
+        request.setAttribute("task", new Task());
 
-        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/messages/new.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/tasks/new.jsp");
         rd.forward(request, response);
      }
 }
